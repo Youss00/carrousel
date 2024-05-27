@@ -38,6 +38,7 @@
     carrousel_radio.dataset.index = idx;
     carrousel_radio.type = 'radio';
     carrousel_radio.name = 'imageRadio';
+    if (idx === 0) carrousel_radio.checked = true; // Vérifie le premier bouton radio par défaut
     carrousel__form.appendChild(carrousel_radio);
 
     carrousel_radio.addEventListener('click', function () {
@@ -52,6 +53,14 @@
       img.style.opacity = 0;
     }
     carrousel__imgs[idx].style.opacity = 1;
+    mettre_a_jour_radio(idx);
+  }
+
+  function mettre_a_jour_radio(idx) {
+    let radios = document.querySelectorAll('.carrousel_radio');
+    radios.forEach(radio => {
+      radio.checked = radio.dataset.index == idx;
+    });
   }
 
   carrousel__prev.addEventListener('click', function () {
@@ -72,6 +81,13 @@
 
   carrousel__x.addEventListener('mousedown', function () {
     carrousel.classList.remove('carrousel--ouvrir');
+  });
+
+  // Ajout de l'événement global pour fermer le carrousel lorsqu'on clique en dehors
+  document.addEventListener('click', function (event) {
+    if (!carrousel.contains(event.target) && !galerie.contains(event.target)) {
+      carrousel.classList.remove('carrousel--ouvrir');
+    }
   });
 
   // Affiche la première image par défaut
