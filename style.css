@@ -26,6 +26,10 @@
   transform: scale(1);
 }
 
+.bouton__ouvrir {
+  display: none;
+}
+
 .carrousel__figure {
   width: 100%;
   height: 100%;
