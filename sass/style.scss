@@ -3,12 +3,21 @@
     position: absolute;
     transform: scale(0);
     transition: transform .25s;
-    width: 45%;
-    height: -webkit-fill-available;
-    left: 25%;
+    width: 90%;
+    /* Largeur par défaut pour les petits écrans */
+    bottom: 3rem;
+    height: 40%;
+    /* Hauteur par défaut pour les petits écrans */
+    left: 5%;
+    /* Centrage sur petits écrans */
     border: 3px solid rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, .1);
     z-index: 2;
+
+    @media screen and (min-width:700px) {
+        width: 90%;
+        height: 60%;
+    }
 }
 
 .carrousel__x {
@@ -59,7 +68,8 @@
 .carrousel__form {
     position: relative;
     bottom: 5rem;
-    left: 45%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #000000a1;
     width: 8rem;
     border: 1px solid #ffffffa1;
@@ -131,4 +141,19 @@
     position: absolute;
     bottom: 10px;
     width: 100%;
+}
+
+/* Media Queries for responsive design */
+@media screen and (min-width: 700px) {
+    .carrousel {
+        width: 45%;
+        height: 45%;
+        left: 25%;
+        bottom: 3rem;
+    }
+
+    .carrousel__form {
+        bottom: 5rem;
+        left: 45%;
+    }
 }
