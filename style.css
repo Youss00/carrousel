@@ -3,9 +3,8 @@
   position: absolute;
   transform: scale(0);
   transition: transform 0.25s;
-  width: 50%;
-  height: 50%;
-  top: 25%;
+  width: 45%;
+  height: -webkit-fill-available;
   left: 25%;
   border: 3px solid rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.1);
